@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html style="height: 100%" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>우리동네 어린이집</title>
+    
+    <link href="asset/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="asset/prettyCheckable.css" rel="stylesheet">
+
+    <script src="asset/jquery-1.9.1.min.js"></script>
+	<script src="asset/prettyCheckable.js"></script>
+
+	<!-- Spin Loading -->
+	<script type="text/javascript" src="asset/spin.min.js"></script>
+
+    <script type="text/javascript" src="asset/main.js" type="text/javascript"></script>
+	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=DAUM_API_KEY" charset="utf-8"></script>
+
+	<!-- Google Analytics -->
+	<script type="text/javascript">
+
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-43184893-1']);
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
+  </head>
+	<body style="height: 100%">
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/ko_KR/all.js#xfbml=1";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+		  window.fbAsyncInit = function() {
+		    // init the FB JS SDK
+		    FB.init({
+		      appId      : '1404176659805065',
+		      channelUrl : '//placardmart.com/channel.php', // Channel file for x-domain comms
+		      status     : true,                             // Check Facebook Login status
+		      xfbml      : true                              // Look for social plugins on the page
+		    });
+
+		    // Additional initialization code such as adding Event Listeners goes here
+		  };
+		</script>
+
+	  <div id="wrapper" style="width: 100%; height: 100%">
+		  <div id="left" style="height: 100%; float: left; width: 250px;">
+		    <br/>
+		    <label id="select_area" name="select_area_lbl"><p style="font-family:돋움;font-size:14px;">지역선택</p></label>
+			<select id="area1" name="area2">
+				<option value="선택">선택</option>
+				<option value="경기도">경기도</option>
+				<option value="서울특별시">서울특별시</option>
+				<option value="전라북도">전라북도</option>
+				<option value="제주도">제주도</option>
+			</select>
+			<br/>
+			<select id="area2" name="area2">
+				<option value="선택">선택</option>
+			</select>
+			<label id="selected_area_lbl" name="selected_area_lbl"></label>
+			<table class="lite-1">
+				<tr>
+					<td>
+						<input type="checkbox" class="style_checkbox" checked="checked" id="national" name="national" data-label="국공립" data-color="gray"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" class="style_checkbox" checked="checked" id="private" name="private" data-label="민간" data-color="gray" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" class="style_checkbox" checked="checked" id="home" name="home" data-label="가정" data-color="gray"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="checkbox" class="style_checkbox" checked="checked" id="other" name="other" data-label="기타" data-color="gray"/>
+					</td>
+				</tr>
+				<tr height="40">
+					<td>
+						<a href='#' name="hide_select_area" title="지역선택 메뉴 숨기기"><img id="arrow_left_img" src="../asset/image/arrow_left.gif"></a>
+						<a href='#' name="show_select_area" title="지역선택 메뉴 보이기"><img id="arrow_right_img" src="../asset/image/arrow_left.gif"></a>
+					</td>
+				</tr>
+				<tr height="50">
+					<td>
+						<label id="data_src" name="data_src_lbl"><p style="font-family:돋움;font-size:14px;">어린이집 정보는 보건복지부 <a href="http://www.childcare.go.kr/" target="_black">아이사랑교육포털</a>에서 가져왔습니다.</p></label>
+					</td>
+				</tr>
+				<tr height="30">
+					<td>
+						<div class="fb-like" id="fblike" data-href="http://placardmart.com/" data-width="150" data-layout="button_count" data-show-faces="false" data-send="false"></div>
+					</td>
+				</tr>
+				<tr height="30">
+					<td>
+						<a href="#" 
+						  onclick="
+						    window.open(
+						      'https://www.facebook.com/sharer/sharer.php?u='+encodeURIComponent(location.href), 
+						      'facebook-share-dialog', 
+						      'width=626,height=436'); 
+						    return false;" title="facebook에 공유하기">
+						  <img id="fbshare_img" src="../asset/image/fbshare.png">
+						</a>
+					</td>
+				</tr>
+				<tr height="30">
+					<td>
+						<img id="email_img" src="../asset/image/mymail.png" title="건의사항">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<img id="github_img" src="../asset/image/fluidicon.png" title="Comming soon" style="height: 64px; width: 64px;">
+					</td>
+				</tr>
+			</table>
+			</div>
+			<div id="map" style="height: 100%; margin-left: 250px;"></div>
+		</div>
+		
+	</body>
+</html>
+	
